@@ -2,10 +2,13 @@ import { StyleSheet, View, TouchableOpacity } from "react-native";
 import React from "react";
 import { FontAwesome } from "@expo/vector-icons";
 
-const HeaderButton = () => {
+const HeaderButton = ({ navigation }) => {
   return (
     <View>
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => navigation.goBack()}
+      >
         <FontAwesome name={"arrow-left"} color={"#2b2b2b"} />
       </TouchableOpacity>
     </View>

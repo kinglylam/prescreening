@@ -5,12 +5,13 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity,
+  SafeAreaView,
 } from "react-native";
 import React from "react";
 import Background from "../assets/Onboarding6.jpg";
 import Logo from "../assets/Logo2.png";
 
-const Onboarding6 = () => {
+const Onboarding6 = ({ navigation }) => {
   return (
     <ImageBackground
       source={Background}
@@ -40,6 +41,7 @@ const Onboarding6 = () => {
                 justifyContent: "center",
                 alignItems: "center",
               }}
+              onPress={() => navigation.navigate("SignIn")}
             >
               <Text style={styles.buttonText}>Sign In</Text>
             </TouchableOpacity>
@@ -55,6 +57,7 @@ const Onboarding6 = () => {
                 borderColor: "white",
                 marginTop: 20,
               }}
+              onPress={() => navigation.navigate("Register")}
             >
               <Text style={styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
@@ -69,8 +72,9 @@ export default Onboarding6;
 
 const styles = StyleSheet.create({
   BackgroundImage: {
-    flex: 1,
     resizeMode: "cover",
+    justifyContent: "center",
+    height: "100%",
   },
   content: {
     marginTop: 55,

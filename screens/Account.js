@@ -11,7 +11,7 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import profilePic from "../assets/profilePic.jpg";
 import { Divider } from "react-native-elements";
-import BottomTabs from "./BottomTab";
+import BottomTabs from "../components/BottomTab";
 
 const Account = () => {
   const Icon = ({ name, color }) => (

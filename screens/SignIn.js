@@ -8,18 +8,12 @@ import {
   Image,
 } from "react-native";
 import React, { useState } from "react";
-import HeaderButton from "./HeaderButton";
-import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import HeaderButton from "../components/HeaderButton";
+import { Ionicons } from "@expo/vector-icons";
 import GoogleLogo from "../assets/google.png";
 
-const Register = () => {
+const SignIn = ({ navigation }) => {
   const [isSecure, setIsSecure] = useState(true);
-  const [isChecked, setIsChecked] = useState(false);
-
-  const handleCheckboxPress = () => {
-    setIsChecked(!isChecked);
-  };
-
   const toggleSecureEntry = () => {
     setIsSecure(!isSecure);
   };
@@ -39,40 +33,14 @@ const Register = () => {
       }}
     >
       <View style={{ margin: 20, paddingTop: 30 }}>
-        <HeaderButton />
+        <HeaderButton navigation={navigation} />
         <View style={styles.content}>
-          <Text style={styles.Title}>Register Account</Text>
+          <Text style={styles.Title}>Hello Dr!</Text>
           <Text style={styles.subTitle}>
             Fill your details or continue with {"\n"}social media
           </Text>
         </View>
         <View style={styles.inputsContainer}>
-          <View style={styles.inputContainer}>
-            <Icon
-              name="ios-person"
-              size={30}
-              color="black"
-              style={styles.icon}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="First name"
-              placeholderTextColor="black"
-            />
-          </View>
-          <View style={styles.inputContainer}>
-            <Icon
-              name="ios-person"
-              size={30}
-              color="black"
-              style={styles.icon}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Last name"
-              placeholderTextColor="black"
-            />
-          </View>
           <View style={styles.inputContainer}>
             <Icon name="mail" size={30} color="black" style={styles.icon} />
             <TextInput
@@ -90,7 +58,7 @@ const Register = () => {
             />
             <TextInput
               style={styles.input}
-              placeholder="Password"
+              placeholder="password"
               placeholderTextColor="black"
               secureTextEntry={isSecure}
             />
@@ -99,29 +67,18 @@ const Register = () => {
             </TouchableOpacity>
           </View>
         </View>
-        <View>
-          <TouchableOpacity
-            style={styles.checkboxContainer}
-            onPress={handleCheckboxPress}
-          >
-            {isChecked ? (
-              <MaterialIcons name="check-box" size={24} color="blue" />
-            ) : (
-              <MaterialIcons
-                name="check-box-outline-blank"
-                size={24}
-                color="blue"
-              />
-            )}
-            <Text style={styles.checkboxLabel}>
-              I accept all the Terms & Conditions
-            </Text>
-          </TouchableOpacity>
-        </View>
-
+        <TouchableOpacity style={{ marginVertical: 10 }}>
+          <Text style={{ alignSelf: "flex-end", color: "#2b2b2b" }}>
+            {" "}
+            Forgot password ?
+          </Text>
+        </TouchableOpacity>
         <View style={{ marginTop: 10 }}>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Register</Text>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate("HomePage")}
+          >
+            <Text style={styles.buttonText}>Sign In</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.lineContainer}>
@@ -133,13 +90,13 @@ const Register = () => {
         <View style={styles.googleSign}>
           <Image source={GoogleLogo} style={styles.googleLogo} />
           <TouchableOpacity>
-            <Text style={{ color: "#c2bcbc" }}>Sign Up with Google </Text>
+            <Text style={{ color: "#c2bcbc" }}>Sign In with Google </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.singIn}>
-          <Text style={{ color: "#555555" }}>Already have account? </Text>
-          <TouchableOpacity>
-            <Text style={{ color: "#4425f5" }}>Sign in</Text>
+          <Text style={{ color: "#555555" }}>Don’t have account? </Text>
+          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+            <Text style={{ color: "#4425f5" }}> Register</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -147,7 +104,7 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SignIn;
 
 const styles = StyleSheet.create({
   content: {
@@ -188,15 +145,6 @@ const styles = StyleSheet.create({
     gap: 7,
     marginTop: 15,
   },
-  checkboxContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginVertical: 8,
-  },
-  checkboxLabel: {
-    marginLeft: 8,
-    fontSize: 18,
-  },
   button: {
     backgroundColor: "#4425f5",
     width: "100%",
@@ -234,7 +182,7 @@ const styles = StyleSheet.create({
     marginTop: 45,
   },
   singIn: {
-    marginTop: 50,
+    marginTop: 140,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",

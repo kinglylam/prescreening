@@ -10,7 +10,7 @@ import React from "react";
 import Background from "../assets/Onboarding7.jpg";
 import Logo from "../assets/Logo2.png";
 
-const Onboarding8 = () => {
+const Onboarding7 = ({ navigation }) => {
   return (
     <ImageBackground source={Background} style={styles.BackgroundImage}>
       <View style={styles.darkOverlay} />
@@ -34,6 +34,7 @@ const Onboarding8 = () => {
                 justifyContent: "center",
                 alignItems: "center",
               }}
+              onPress={() => navigation.navigate("SignIn")}
             >
               <Text style={styles.buttonText}>Sign In</Text>
             </TouchableOpacity>
@@ -49,6 +50,7 @@ const Onboarding8 = () => {
                 borderColor: "white",
                 marginTop: 20,
               }}
+              onPress={() => navigation.navigate("Register")}
             >
               <Text style={styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
@@ -59,12 +61,13 @@ const Onboarding8 = () => {
   );
 };
 
-export default Onboarding8;
+export default Onboarding7;
 
 const styles = StyleSheet.create({
   BackgroundImage: {
-    flex: 1,
     resizeMode: "cover",
+    justifyContent: "center",
+    height: "100%",
   },
   content: {
     marginTop: 55,

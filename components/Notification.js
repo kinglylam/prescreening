@@ -9,7 +9,7 @@ import {
 import React from "react";
 import HeaderButton from "./HeaderButton";
 import { NotificationData } from "../utils/data";
-const Notification = () => {
+const Notification = ({ navigation }) => {
   return (
     <SafeAreaView
       style={{
@@ -20,7 +20,7 @@ const Notification = () => {
     >
       <View style={{ margin: 20 }}>
         <View style={styles.headerContainer}>
-          <HeaderButton />
+          <HeaderButton navigation={navigation} />
           <Text style={styles.headerText}>Notifications</Text>
         </View>
         <ScrollView>

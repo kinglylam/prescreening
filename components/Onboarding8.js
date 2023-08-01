@@ -10,7 +10,7 @@ import React from "react";
 import Background from "../assets/Onboarding8.jpg";
 import Logo from "../assets/Logo2.png";
 
-const Onboarding8 = () => {
+const Onboarding8 = ({ navigation }) => {
   return (
     <ImageBackground source={Background} style={styles.BackgroundImage}>
       <View style={styles.darkOverlay} />
@@ -23,7 +23,7 @@ const Onboarding8 = () => {
           </Text>
           <Text style={styles.text2}>With Hospyta</Text>
 
-          <View style={{ marginTop: 40 }}>
+          <View style={{ margin: 40 }}>
             <TouchableOpacity
               style={{
                 backgroundColor: "#4425f5",
@@ -34,6 +34,7 @@ const Onboarding8 = () => {
                 justifyContent: "center",
                 alignItems: "center",
               }}
+              onPress={() => navigation.navigate("SignIn")}
             >
               <Text style={styles.buttonText}>Sign In</Text>
             </TouchableOpacity>
@@ -49,6 +50,7 @@ const Onboarding8 = () => {
                 borderColor: "white",
                 marginTop: 20,
               }}
+              onPress={() => navigation.navigate("Register")}
             >
               <Text style={styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
@@ -63,8 +65,9 @@ export default Onboarding8;
 
 const styles = StyleSheet.create({
   BackgroundImage: {
-    flex: 1,
     resizeMode: "cover",
+    justifyContent: "center",
+    height: "100%",
   },
   content: {
     marginTop: 55,
