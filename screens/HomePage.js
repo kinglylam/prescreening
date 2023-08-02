@@ -117,7 +117,7 @@ const HomePage = ({ navigation }) => {
         </ScrollView>
       </View>
       <Divider width={0.1} />
-      <BottomTabs />
+      <BottomTabs navigation={navigation} />
     </SafeAreaView>
   );
 };

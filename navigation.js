@@ -7,6 +7,7 @@ import Account from "./screens/Account";
 import RandomComponentScreen from "./screens/RandomComponentScreen";
 import HomePage from "./screens/HomePage";
 import Notification from "./components/Notification";
+import TabNavigator from "./tabNavigation";
 
 export default function RootNavigation() {
   const Stack = createStackNavigator();
@@ -25,9 +26,9 @@ export default function RootNavigation() {
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="HomePage" component={HomePage} />
-
         <Stack.Screen name="Account" component={Account} />
         <Stack.Screen name="Notification" component={Notification} />
+        <Stack.Screen name="Tabs" component={TabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );

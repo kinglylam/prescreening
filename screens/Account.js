@@ -13,7 +13,7 @@ import profilePic from "../assets/profilePic.jpg";
 import { Divider } from "react-native-elements";
 import BottomTabs from "../components/BottomTab";
 
-const Account = () => {
+const Account = ({ navigation }) => {
   const Icon = ({ name, color }) => (
     <Ionicons name={name} color={color} style={styles.icon} />
   );
@@ -39,7 +39,9 @@ const Account = () => {
         <View style={styles.headerContainer}>
           <Text style={styles.headerText}>My Account</Text>
           <View style={styles.headerIcon}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Notification")}
+            >
               <Icon name="notifications" size={40} color="black" />
             </TouchableOpacity>
           </View>
@@ -121,7 +123,7 @@ const Account = () => {
         </ScrollView>
       </View>
       <Divider width={0.1} />
-      <BottomTabs />
+      <BottomTabs navigation={navigation} />
     </SafeAreaView>
   );
 };
