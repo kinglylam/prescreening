@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 import Splash3 from "./components/Splash3";
 
 import RootNavigation from "./navigation";
-import Slider from "./components/SquareCardSlider";
+
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 export default function App() {
   const [appReady, setAppReady] = useState(false);
