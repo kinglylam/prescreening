@@ -49,7 +49,10 @@ const HomePage = ({ navigation }) => {
             >
               <Icon name="notifications" />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.iconContainer}>
+            <TouchableOpacity
+              style={styles.iconContainer}
+              onPress={() => navigation.openDrawer()}
+            >
               <Icon name="menu" />
             </TouchableOpacity>
           </View>

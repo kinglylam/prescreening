@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text } from "react-native";
-
+import "react-native-gesture-handler";
 import Splash3 from "./components/Splash3";
 
 import RootNavigation from "./navigation";
